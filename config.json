@@ -1,0 +1,24 @@
+{
+    "name"       : "Автосохранение",
+    "guid"       : "asc.{930CC41D-6AA4-3BDF-71F4-F69B14AB5DBA}",
+    "baseUrl"    : "",
+	
+    "variations" : [
+        {
+            "description"         : "Автоматическое сохранение документов",
+            "url"                 : "index.html",
+            "icons"               : ["resources/img/icon.png", "resources/img/icon@2x.png"],
+			"isViewer"            : false,
+            "EditorsSupport"	  : [ "word", "cell", "slide" ],
+			"isSystem"			  : true,
+            "isVisual"            : false,
+            "isModal"             : false,
+            "isInsideMode"        : false,
+            "initDataType"        : "none",
+            "initData"            : "",
+            "buttons"             : [],
+			
+			"events" : ["onDocumentContentReady"]
+        }
+    ]
+}
