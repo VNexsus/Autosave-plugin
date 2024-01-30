@@ -219,18 +219,24 @@
 	};
 	
 	window.Asc.plugin.autosave = function() {
-		if(parent.AscDesktopEditor.LocalFileGetSaved()){
-			var e = parent.editor || parent.Asc.editor;
-			if(e) {
-				if(e.asc_isDocumentCanSave()) {
-					e.asc_Save();
+		var e = window.parent.DE || window.parent.PE || window.parent.SSE;
+		if(e.controllers.Main.application.getController("Viewport").getView('Common.Views.Header').readOnly != true){
+			if(parent.AscDesktopEditor.LocalFileGetSaved()){
+				var e = parent.editor || parent.Asc.editor;
+				if(e) {
+					if(e.asc_isDocumentCanSave()) {
+						e.asc_Save();
+					}
+					else {
+						window.Asc.plugin.startTimer();
+					}
 				}
-				else {
-					window.Asc.plugin.startTimer();
-				}
+				else
+					console.log('unknown editor');
 			}
-			else
-				console.log('unknown editor');
+			else{
+				window.Asc.plugin.startTimer();
+			}
 		}
 		else{
 			window.Asc.plugin.startTimer();
